@@ -1,0 +1,4 @@
+<h2 class="title">{{data.title}}</h2>
+<div class="content" ng-class="{'show-more': data.more}" ng-bind-html="data.content"></div>
+
+<button type="button" ng-click="toggleMore()">{{data.more ? 'Cacher' : 'Afficher plus' | translate}}</button>

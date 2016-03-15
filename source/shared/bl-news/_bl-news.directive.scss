@@ -1,0 +1,12 @@
+bl-news {
+    display: block;
+
+    .content {
+        overflow: hidden;
+        height: 35px;
+
+        &.show-more {
+            height: auto;
+        }
+    }
+}

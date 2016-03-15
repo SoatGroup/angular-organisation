@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="Blog">
+    <head>
+        <meta charset="utf-8" />
+
+        <base href="/" />
+
+        <!-- css:css -->
+        <!-- endinject -->
+
+        <!-- FAVICON -->
+		<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+
+        <title>Blog</title>
+    </head>
+
+    <body>
+        <header>
+            <img src="/img/logo-soat.png" alt="logo" />
+        </header>
+
+        <nav>
+            <a href="/">{{'Accueil' | translate}}</a>
+            <a href="/articles">{{'Articles' | translate}}</a>
+        </nav>
+
+        <main id="main-container" ng-view></main>
+
+        <!-- vendor:js -->
+        <!-- endinject -->
+
+        <!-- app:js -->
+        <!-- endinject -->
+    </body>
+</html>
