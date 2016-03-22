@@ -8,23 +8,15 @@
         <!-- css:css -->
         <!-- endinject -->
 
-        <!-- FAVICON -->
-		<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
-
         <title>Blog</title>
     </head>
 
-    <body>
-        <header>
-            <img src="/img/logo-soat.png" alt="logo" />
-        </header>
-
-        <nav>
-            <a href="/">{{'Accueil' | translate}}</a>
-            <a href="/articles">{{'Articles' | translate}}</a>
-        </nav>
+    <body ng-controller="MainController as main">
+        <ng-include src="'/partials/_head.html'"></ng-include>
 
         <main id="main-container" ng-view></main>
+
+        <ng-include src="'/partials/_footer.html'"></ng-include>
 
         <!-- vendor:js -->
         <!-- endinject -->
