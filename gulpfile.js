@@ -106,9 +106,14 @@ function sassTask() {
         ])
         .pipe(concat('screen.scss'))
 
+     var parameters = {};
+
+    if(environment == 'prod')
+		parameters.outputStyle = 'compressed';
+
     return concatTask
         .pipe(plumber())
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass(parameters).on('error', sass.logError))
         .pipe(plumber.stop())
         .pipe(gulp.dest(environment + '/css'))
         .pipe(connect.reload());
