@@ -55,7 +55,6 @@ gulp.task('injectTask', injectTask);
 gulp.task('watch', watchTask);
 gulp.task('local', localTask);
 gulp.task('dev', devTask);
-gulp.task('recette', recetteTask);
 gulp.task('prod', prodTask);
 gulp.task('default', ['local']);
 
@@ -95,7 +94,12 @@ function openTask() {
  * Sass Task
  */
 function sassTask() {
-	 var concatTask = gulp
+     var parameters = {};
+
+    if(environment == 'prod')
+		parameters.outputStyle = 'compressed';
+
+    return gulp
         .src([
             'source/modules/**/*.scss',
             'source/shared/**/*.scss',
@@ -105,13 +109,6 @@ function sassTask() {
             'source/sass/screen.scss'
         ])
         .pipe(concat('screen.scss'))
-
-     var parameters = {};
-
-    if(environment == 'prod')
-		parameters.outputStyle = 'compressed';
-
-    return concatTask
         .pipe(plumber())
         .pipe(sass(parameters).on('error', sass.logError))
         .pipe(plumber.stop())
@@ -265,15 +262,6 @@ function localTask() {
  */
 function devTask() {
     environment = 'dev';
-
-    runAllTasks();
-}
-
-/**
- * Set Recette environment
- */
-function recetteTask() {
-    environment = 'recette';
 
     runAllTasks();
 }
